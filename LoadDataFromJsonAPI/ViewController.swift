@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func fetchData(completionHandler: @escaping ([Post]) -> Void) {
+    func fetchData(completionHandler: @escaping ([PostModel]) -> Void) {
         
         let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
         
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             guard let data = data else { return  }
             
             do {
-                let postDataArray =  try JSONDecoder().decode([Post].self, from: data)
+                let postDataArray =  try JSONDecoder().decode([PostModel].self, from: data)
                 
                 completionHandler(postDataArray)
                 
